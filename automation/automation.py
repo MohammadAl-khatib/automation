@@ -39,7 +39,11 @@ for number in output:
     if number not in phone_numbers_remove_repetitions:
         phone_numbers_remove_repetitions.append(number)
 
-emails = re.findall(r'[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+',content)
+all_emails = re.findall(r'[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+',content)
+emails = []
+for email in all_emails:
+    if email not in emails:
+        emails.append(email)
 
 with open ('emails.txt', 'w') as f:
     emails.sort()
